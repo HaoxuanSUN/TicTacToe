@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>840</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>GameLibrary
+--
+--
++start(): void
+-printGameList(): void
++createGame(String number): GeneralGame
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>40</y>
+      <w>440</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>/GeneralBoard (abstract)/
+--
+#rowSize: int
+#colSize: int
+#board: String[][]
+#placedPieceNum: int
+--
++printBoard(): void
++checkIntegerAviable(int inputCellIndex): boolean
++getCellValue(int num): String
++getCellValue(int rowNum, int colNum): String
++setCellValue(int num, String pieceType): void
++setCellValue(int rowNum, int colNum, String pieceType): void
++fullBoard(): boolean
++getCellRow(int num): int
++getCellCol(int num): int
++toString(String[][] board): void
+#win(int latestMove): boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>40</y>
+      <w>410</w>
+      <h>570</h>
+    </coordinates>
+    <panel_attributes>/GeneralGame (abstract)/
+--
+#gameName: String
+#playerNumber: int
+#teamNumber: int
+#playerPerTeam: int
+#minBoardSize: int
+#team1Name: String
+#team2Name: String
+#team3Name: String
+#team4Name: String
+#teamList = new ArrayList&lt;String&gt;(): List&lt;String&gt;
+#teamPlayerList = new ArrayList&lt;List&gt;(): List&lt;List&gt;
+#team1PlayerList = new ArrayList&lt;Player&gt;(): List&lt;Player&gt;
+#team2PlayerList = new ArrayList&lt;Player&gt;(): List&lt;Player&gt;
+#team3PlayerList = new ArrayList&lt;Player&gt;(): List&lt;Player&gt;
+#team4PlayerList = new ArrayList&lt;Player&gt;(): List&lt;Player&gt;
+#board: GeneralBoard
+#latestMove: int
+#latestPieceType: String
+--
++getPlayerNamePieceType(): void
+-initTeam(): void
+-initPlayer(): void
+#checkPieceType(String pieceType): boolean
++startGame(): void
+#getBoardSize(): void
++printBoard(): void
+-updateplayerGameCount(List&lt;Player&gt; playerList): void
+-playGame(List&lt;List&gt; teamPlayerList): void
+-teamTurn(List&lt;Player&gt; playerList): void
+-playerTurn(Player player): void
+#checkInteger(String str): boolean
+-updateplayerDrawCount(List&lt;Player&gt; playerList): void
+-gameOver(): void
+-again(): boolean
+-gameSummary(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>860</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Main
+--
+--
++main(String[] args): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>570</y>
+      <w>350</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>Player
+--
+-playerName: String
+-playerNum: int
+-teamName: String
+-playerPieceType: String
+-gameCount: int
+-winCount: int
+-drawCount: int
+--
++Player(String name, int num, String tName): ctor
++getPlayerName(): String
++getPlayerNum(): int
++getTeamName(): String
++getplayerPieceType(): String
++setplayerPieceType(String type): void
++getGameCount(): int
++updateGameCount(): void
++getWinCount(): int
++updateWinCount(): void
++getDrawCount(): int
++updateDrawCount(): void
++toString(): String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>700</y>
+      <w>310</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>OrderAndChaosGame (SubClass)
+--
+-pieceTypeArray = { "O", "X" }: String[]
+--
++OrderAndChaosGame(): ctor
+#checkPieceType(String pieceType): boolean
+#getBoardSize(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>390</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>TicTacToeBoard (SubClass)
+--
+-size: int
+--
++TicTacToeBoard(int size): ctor
++getSize(): int
+#win(int latestMove): boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>700</y>
+      <w>280</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>TicTacToeGame (SubClass)
+--
+-pieceTypeArray = { "O", "X" }: String[]
+--
++TicTacToeGame(): ctor
+#checkPieceType(String str): boolean
+#getBoardSize(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>390</y>
+      <w>270</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>OrderAndChaosBoard (SubClass)
+--
+-size: int
+--
++OrderAndChaosBoard(int size): ctor
+#win(int latestMove): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>300</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>600</y>
+      <w>80</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>600</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>300</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+</diagram>
